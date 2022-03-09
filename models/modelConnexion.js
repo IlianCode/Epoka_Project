@@ -7,5 +7,14 @@ module.exports = {
             return callback(data);
         });
 
+    },
+    executer_connexion: function(callback){
+       
+        var sql = 'SELECT * FROM salarie';
+        db.query(sql, function (err, data) {
+            if (err) throw err;
+            return callback(data);
+        });
+
     }
 }
