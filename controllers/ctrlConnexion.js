@@ -18,12 +18,12 @@ module.exports = {
             console.log(mdp)
             for (i=0; i<data.length;i++){
                 if (data[i].sa_nom == user){
-                    console.log("OUI")
+                    if (data[i].sa_mdp == mdp){
+                        console.log("CONNECTER")
+                        res.redirect("http://google.fr")
+                    }
                 }
-                if (data[i].sa_mdp == mdp){
-                    console.log("CONNECTER")
-                }
-
+                
             }
             res.redirect('./connexion')
         })

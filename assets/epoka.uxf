@@ -8,27 +8,33 @@ m2=0..1&lt;/panel_attributes&gt;&lt;additional_attributes&gt;390;50;10;10&lt;/ad
 nom
 prenom
 mdp
-isCompta</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>0</y><w>100</w><h>130</h></coordinates><panel_attributes>mission 
+isCompta
+isSubordonne
+idagence#</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>460</x><y>0</y><w>100</w><h>210</h></coordinates><panel_attributes>mission 
 --
 id
 lieu
 dateDebut
 dateFin
 valideé
-payé</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>60</y><w>380</w><h>110</h></coordinates><panel_attributes>lt=-
+payé
+idsalarie#
+idcommune#
+villedepart#
+villearrive#</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>100</x><y>60</y><w>380</w><h>110</h></coordinates><panel_attributes>lt=-
 m1= 0..*
 m2=0..1</panel_attributes><additional_attributes>360;10;210;10;210;80;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>320</y><w>100</w><h>120</h></coordinates><panel_attributes>agence 
 --
 id
 nom
-
+idcommune#
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>20</x><y>200</y><w>50</w><h>140</h></coordinates><panel_attributes>lt=-
 m1= 0..*
 m2=1</panel_attributes><additional_attributes>10;10;10;120</additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>80</y><w>100</w><h>150</h></coordinates><panel_attributes>Commune
 --
 id
 nom
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>90</y><w>230</w><h>120</h></coordinates><panel_attributes>lt=-
+cp</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>550</x><y>90</y><w>230</w><h>120</h></coordinates><panel_attributes>lt=-
 m1= 0..*
 m2=0..1</panel_attributes><additional_attributes>210;90;130;90;130;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>550</x><y>490</y><w>100</w><h>140</h></coordinates><panel_attributes>Parametre 
 --
@@ -39,9 +45,13 @@ m1= 0..*
 m2=1</panel_attributes><additional_attributes>10;160;730;160;730;10</additional_attributes></element><element><id>Relation</id><coordinates><x>850</x><y>100</y><w>120</w><h>130</h></coordinates><panel_attributes>lt=-
 m1= *
 m2=*
-</panel_attributes><additional_attributes>10;100;100;100;100;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1070</x><y>130</y><w>100</w><h>80</h></coordinates><panel_attributes>relier
+</panel_attributes><additional_attributes>10;100;100;100;100;10;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1070</x><y>130</y><w>100</w><h>160</h></coordinates><panel_attributes>distance
 --
-distance</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>940</x><y>150</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=.
+id
+distanceKm
+idcomdepart
+idcomarrive
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>940</x><y>150</y><w>150</w><h>40</h></coordinates><panel_attributes>lt=.
 </panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>980</x><y>450</y><w>100</w><h>80</h></coordinates><panel_attributes>commune 
 --
 id 
