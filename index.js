@@ -1,6 +1,6 @@
 // inclure les dépendances et middlewares
 const express = require("express");
-
+const Routeur = require('./routes/routes')
 // activer les dépendances
 let app = express();
 app.use(express.urlencoded());
@@ -10,4 +10,7 @@ app.use(express.static("views"));
 
 
 app.listen(3000, () => console.log("Le serveur est actif !"));
-app.use("/", (Routeur = require("./routes/routes")));
+app.get('/', (req, res) => {
+    res.send('Le serveur epoka est actif')
+})
+app.use("/", Routeur);
