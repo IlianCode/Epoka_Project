@@ -9,27 +9,22 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="menu">
-
-            <button class="btnconnect">
-                Connexion
-            </button>
-            <form action="/newmission" class="btnnewmission">
-                <button>
-                    Nouvelle Mission
+        <div class="menu">
+                <button class="btnconnect" onclick="window.location.href='/connexion'">
+                    Connexion
                 </button>
-            </form>
-            <button class="btnvalidation">
-                Validation des missions
-            </button>
-            <button class="btnpaiement">
-                Paiement des frais
-            </button>
-            <button class="btnparametre">
-                Paramétrage
-            </button>
-            
+                
+                <button class="btnvalidation" onclick="window.location.href='/validation'">
+                    Validation des missions
+                </button>
+                <button class="btnpaiement" onclick="window.location.href='/paiement'">
+                    Paiement des frais
+                </button>
+                <button class="btnparametre" onclick="window.location.href='/parametre'">
+                    Paramétrage
+                </button>
         </div>
+
         <div class="con">
             <form action="/connexion" method="POST">
                 <label for="txtUtilisateur">Utilisateur</label>

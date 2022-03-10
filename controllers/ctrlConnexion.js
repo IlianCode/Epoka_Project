@@ -20,7 +20,6 @@ module.exports = {
                 if (data[i].sa_nom == user){
                     if (data[i].sa_mdp == mdp){
                         console.log("CONNECTER")
-                        res.redirect("http://google.fr")
                     }
                 }
                 
