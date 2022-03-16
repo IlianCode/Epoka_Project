@@ -12,7 +12,8 @@ routeur.get("/connexion", ctrlconnexion.afficher_connexion)
     .post("/connexion", ctrlconnexion.executer_connexion);
 routeur.get("/validation", ctrlValidation.afficher_validation);
 routeur.get("/paiement", ctrlPaiement.afficher_paiement);
-routeur.get("/parametre", ctrlParametre.afficher_parametre);
+routeur.get("/parametre", ctrlParametre.afficher_parametre)
+    .post("/parametre", ctrlParametre.ajouter_distanceVille);
 
 
 module.exports = routeur;

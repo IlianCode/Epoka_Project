@@ -7,5 +7,12 @@ module.exports = {
             return callback(data);
         });
 
+    },
+    ajouter_distanceVille: function(listeVille, callback){
+        var sql = 'insert into distance set ? ';
+        db.query(sql, listeVille, function (err, data,fields) {
+            if (err) throw err;
+            return callback(data);
+        });
     }
 }

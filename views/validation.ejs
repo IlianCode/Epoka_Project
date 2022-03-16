@@ -23,6 +23,74 @@
         <button class="btnparametre" onclick="window.location.href='/parametre'">
             Paramétrage
         </button>
-</div>
+    </div>
+    <table class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th scope="col">Action</th>
+                <th scope="col">Nom du salarié</th>
+                <th scope="col">Date début mission</th>
+                <th scope="col">Date fin de mission</th>
+                <th scope="col">Ville de départ</th>
+                <th scope="col">Ville de la mission</th>
+                <th scope="col">Etat de la mission</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% console.log(contenu) %>
+            <% contenu.forEach(function(mission){ %>
+            
+                <tr>
+                    <td>
+                        <ul class="list-inline m-0">
+                            <li class="list-inline-item">
+                                <button class="btn btn-primary btn-sm rounded-0" type="button"
+                                    data-toggle="modal" data-target="#detail_<%= mission.mi_id %>"
+                                    title="Détails"><i class="fa fa-eye"></i></button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-success btn-sm rounded-0" type="button"
+                                    title="Modifier"
+                                    onclick="location.href = '/sautheuhz/fiche_client/<%= mission.mi_id %>';"><i
+                                        class="fa fa-edit"></i></button>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="btn btn-danger btn-sm rounded-0" type="button"
+                                    data-toggle="modal"
+                                    data-target="#supprimer_<%= mission.mi_idsalarie %>"
+                                    title="Supprimer"><i class="fa fa-trash"></i></button>
+                                </form>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        <%= mission.sa_nom %> <%= mission.sa_prenom %> 
+
+                    </td>
+
+                    <td>
+                        <%= mission.mi_dateDebut %>
+                    </td>
+                    <td class="dispTel">
+                        <%= mission.mi_dateFin %>
+                    </td>
+                    <td>
+                        <%= mission.mi_lieuDepart %>
+                    </td>
+                    <td>
+                        <%= mission.mi_idcommune %>
+                    </td>
+                    <td>
+                        <% if(  mission.mi_validee  == 0 ) {%>
+                        <form action=""><button type="submit">Valider la mission</button></form>
+                        <% } else { %>
+                        Déjà validée
+                        <% } %>
+                    </td>
+                </tr>
+                <% })%>
+        </tbody>
+    </table>
+
 </body>
 </html>
