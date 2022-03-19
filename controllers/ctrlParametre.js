@@ -12,6 +12,7 @@ module.exports = {
         let di_idComDepart = req.body.dstA
         let di_idComArrive = req.body.dstB
         let di_distanceKm = req.body.dstKm 
+        if(di_distanceKm ==""){di_distanceKm = "Distance non définie, merci d'ajouter une distance"}
 
         let listeVille = { di_distanceKm, di_idComDepart, di_idComArrive}
         modelParametre.ajouter_distanceVille(listeVille, function(data){

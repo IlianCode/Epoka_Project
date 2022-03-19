@@ -85,42 +85,44 @@
             </thead>
             <tbody>
                 <% console.log(contenu) %>
-                <% contenu.forEach(function(mission){ %>
+                <% contenu.forEach(function(contenu){ %>
                 
                     <tr>
                         <td>
                             <ul class="list-inline m-0">
                                 <li class="list-inline-item">
                                     <button class="btn btn-primary btn-sm rounded-0" type="button"
-                                        data-toggle="modal" data-target="#detail_<%= mission.mi_id %>"
+                                        data-toggle="modal" data-target="#detail_<%= contenu.di_id %>"
                                         title="Détails"><i class="fa fa-eye"></i></button>
                                 </li>
                                 <li class="list-inline-item">
                                     <button class="btn btn-success btn-sm rounded-0" type="button"
                                         title="Modifier"
-                                        onclick="location.href = '/sautheuhz/fiche_client/<%= mission.mi_id %>';"><i
+                                        onclick="location.href = '/sautheuhz/fiche_client/<%= contenu.di_id %>';"><i
                                             class="fa fa-edit"></i></button>
                                 </li>
                                 <li class="list-inline-item">
                                     <button class="btn btn-danger btn-sm rounded-0" type="button"
                                         data-toggle="modal"
-                                        data-target="#supprimer_<%= mission.mi_idsalarie %>"
+                                        data-target="#supprimer_<%= contenu.di_id %>"
                                         title="Supprimer"><i class="fa fa-trash"></i></button>
                                     </form>
                                 </li>
                             </ul>
                         </td>
                         <td>
-                            <%= mission.sa_nom %> <%= mission.sa_prenom %> 
-    
+                            <%= contenu.di_idComDepart %>
+
                         </td>
     
                         <td>
-                            <%= mission.mi_dateDebut %>
+                            <%= contenu.di_idComArrive %>
                         </td>
-                        <td class="dispTel">
-                            <%= mission.mi_dateFin %>
+                        <td>
+                            <%= contenu.di_distanceKm %> 
+
                         </td>
+                        
                        
                     </tr>
                     <% })%>
