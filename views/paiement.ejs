@@ -1,33 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=a, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="menu">
-        <button class="btnconnect" onclick="window.location.href='/connexion'">
-            Connexion
-        </button>
-        
-        <button class="btnvalidation" onclick="window.location.href='/validation'">
-            Validation des missions
-        </button>
-        <button class="btnpaiement" onclick="window.location.href='/paiement'">
-            Paiement des frais
-        </button>
-        <button class="btnparametre" onclick="window.location.href='/parametre'">
-            Paramétrage
-        </button>
-</div>
+<%- include('header') %>
+
 <table class="table table-striped table-bordered" style="width:100%">
     <thead>
         <tr>
-            <th scope="col">Action</th>
             <th scope="col">Nom du salarié</th>
             <th scope="col">Date début mission</th>
             <th scope="col">Date fin de mission</th>
@@ -42,42 +17,32 @@
         <% contenu.forEach(function(mission){ %>
         
             <tr>
+                
                 <td>
-                    <ul class="list-inline m-0">
-                        <li class="list-inline-item">
-                            <button class="btn btn-primary btn-sm rounded-0" type="button"
-                                data-toggle="modal" data-target="#detail_<%%>"
-                                title="Détails"><i class="fa fa-eye"></i></button>
-                        </li>
-                        <li class="list-inline-item">
-                            <button class="btn btn-success btn-sm rounded-0" type="button"
-                                title="Modifier"
-                                onclick="location.href = '/sautheuhz/fiche_client/<% %>';"><i
-                                    class="fa fa-edit"></i></button>
-                        </li>
-                        <li class="list-inline-item">
-                            <button class="btn btn-danger btn-sm rounded-0" type="button"
-                                data-toggle="modal"
-                                data-target="#supprimer_<%%>"
-                                title="Supprimer"><i class="fa fa-trash"></i></button>
-                            </form>
-                        </li>
-                    </ul>
-                </td>
-                <td>
+                    <%= mission.sa_nom %> <%= mission.sa_prenom %> 
                 </td>
 
                 <td>
+                    <%= mission.mi_dateDebut %>
                 </td>
                 <td>
+                    <%= mission.mi_dateFin %>
                 </td>
                 <td>
+                    <%= mission.mi_lieuDepart %>
                 </td>
                 <td>
+                    <%= mission.mi_idcommune %>
                 </td>
                 <td>
+                    
                 </td>
                 <td>
+                    <% if(  mission.mi_payee  == 0 ) {%>
+                        <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Valider la mission</button></form>
+                        <% } else { %>
+                            Paiement déjà réalisé
+                        <% } %>
                 </td>
             </tr>
             <% })%>

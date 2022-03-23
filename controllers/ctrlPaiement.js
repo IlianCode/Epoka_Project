@@ -4,9 +4,23 @@ module.exports = {
     //afficher accueil
     afficher_paiement: function (req, res) {
         modelPaiement.afficher_paiement(function(data){
-            res.render('./paiement', {contenu: data})
+            if( req.session.connect == undefined ){
+                console.log("test")
+                 res.redirect('./connexion')
+            }else {
+                res.render('./paiement', {contenu: data})
+
+            }
 
         })
     },
+    executer_paiement: function(req,res){
+        let mi_id = req.params.id
+
+        modelPaiement.executer_paiement(mi_id, function(data){
+            res.redirect('../../paiement')
+
+        })
+    }
 
 }

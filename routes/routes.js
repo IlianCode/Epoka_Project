@@ -10,8 +10,11 @@ const ctrlParametre = require('../controllers/ctrlParametre');
 
 routeur.get("/connexion", ctrlconnexion.afficher_connexion)
     .post("/connexion", ctrlconnexion.executer_connexion);
-routeur.get("/validation", ctrlValidation.afficher_validation);
-routeur.get("/paiement", ctrlPaiement.afficher_paiement);
+routeur.get("/validation", ctrlValidation.afficher_validation)
+    .post("/validation/modifEtatMission/:id", ctrlValidation.executer_validation);
+routeur.get("/paiement", ctrlPaiement.afficher_paiement)
+    .post("/paiement/modifEtatMissionPaiement/:id", ctrlPaiement.executer_paiement);
+
 routeur.get("/parametre", ctrlParametre.afficher_parametre)
     .post("/parametre", ctrlParametre.ajouter_distanceVille);
 

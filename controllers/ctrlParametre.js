@@ -4,8 +4,12 @@ module.exports = {
     //afficher accueil
     afficher_parametre: function (req, res) {
         modelParametre.afficher_parametre(function(data){
-            res.render('./parametre', {contenu: data})
 
+            if( req.session.connect == undefined ){
+                 res.redirect('./connexion')
+            }else {
+                res.render('./parametre', {contenu: data})
+            }
         })
     },
     ajouter_distanceVille: function(req, res){
