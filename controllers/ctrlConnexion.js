@@ -4,7 +4,6 @@ module.exports = {
     //afficher accueil
     afficher_connexion: function (req, res) {
         modelConnexion.afficher_connexion(function(data){
-            console.log(w)
             res.render('./connexion', {test: data})
 
         })

@@ -5,7 +5,6 @@ module.exports = {
     afficher_paiement: function (req, res) {
         modelPaiement.afficher_paiement(function(data){
             if( req.session.connect == undefined ){
-                console.log("test")
                  res.redirect('./connexion')
             }else {
                 res.render('./paiement', {contenu: data})

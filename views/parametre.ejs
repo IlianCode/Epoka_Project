@@ -1,5 +1,5 @@
 <%- include('header') %>
-
+<body>
     <div>
     <form action="" method="post">
         <div class="rbtKm">
@@ -19,20 +19,25 @@
     <div>
     <form action="/parametre" method="post">
         <div class="distanceA">
-            
-            
-            <label for="dstA">Ville A 
-                <select class="select2" id="sel" name="dstA" >
-                <option value="">-- Select --</option>
-            </select>
-            </label>
+            <input list="communes" name="communes">
+                <datalist id="communes" name="communes">
+                    <% for (let i = 0; i < contenu2.length; i++) { %>
+                        <option value="<%= contenu2[i].co_nom %>"><%= contenu2[i].co_cp %></option>
+                    <% } %>
+                </datalist>
+             </input>    
         </div>
         <div class="distanceB">
-            <label for="dstB">Ville B 
-                <select class="select2" id="sel2" name="dstB" >
-                    <option value="">-- Select --</option>
-            </label>
+            <input list="communes2" name="communes2">
+                <datalist id="communes2" name="communes2">
+                    <% for (let i = 0; i < contenu2.length; i++) { %>
+                        <option value="<%= contenu2[i].co_nom %>"><%= contenu2[i].co_cp %></option>
+                    <% } %>
+                </datalist>
+             </input>    
         </div>
+       
+        
         <div class="distanceKm">
             <label for="dstKm">Distance entre les deux villes
                 <input type="text" name="dstKm" id="dstKm">

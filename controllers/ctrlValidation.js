@@ -5,7 +5,6 @@ module.exports = {
     afficher_validation: function (req, res) {
         modelValidation.afficher_validation(function(data){
             if( req.session.connect == undefined ){
-                console.log("test")
                  res.redirect('./connexion')
             }else {
                 res.render('./validation', {contenu: data})
