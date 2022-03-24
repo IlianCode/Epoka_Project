@@ -3,12 +3,13 @@ const modelParametre = require('../models/modelParametre');
 module.exports = {
     //afficher accueil
     afficher_parametre: function (req, res) {
-        modelParametre.afficher_parametre(function(data, data2){
+        modelParametre.afficher_parametre(function(data, data2, data3){
 
             if( req.session.connect == undefined ){
                  res.redirect('./connexion')
             }else {
-                res.render('./parametre', {contenu: data, contenu2: data2})
+                console.log(data3)
+                res.render('./parametre', {contenu: data, contenu2: data2, contenu3: data3})
             }
         })
     },
@@ -16,22 +17,36 @@ module.exports = {
         let co_nom = req.body.communes
         let co_nom2 = req.body.communes2
         let di_distanceKm = req.body.dstKm 
-        if(di_distanceKm ==""){di_distanceKm = "Distance non définie, merci d'ajouter une distance"}
+        //check si ya des letter dans une variable (utilisé pour la securisation des entrées)
+        function containsAnyLetter(str) {
+            return /[a-zA-Z]/.test(str);
+          }
+        //secu des entrées
+        console.log(containsAnyLetter(di_distanceKm))
+        if(di_distanceKm =="" || di_distanceKm == 0 || co_nom == co_nom2 || containsAnyLetter(di_distanceKm)== true){
+            res.redirect('./parametre') 
+            return
+        }
       
-        console.log("--")
-        console.log(co_nom)
-        console.log(co_nom2)
-        console.log('---')
 
         modelParametre.recup_idVille([co_nom, co_nom2], function(data, data2){
-            console.log(data, data2)
             let di_idComDepart = data[0].co_id
             let di_idComArrive = data2[0].co_id
             modelParametre.ajouter_distanceVille([di_distanceKm,di_idComDepart,di_idComArrive], function(data){
-                console.log(data)
                 res.redirect('./parametre')
             })
         })
+       
+    },
+
+    modifier_taux:function(req, res){
+        let tauxKm = req.body.rbtKm
+        let forfaitJ = req.body.rbtJour
+
+       
+            modelParametre.modifier_taux([forfaitJ, tauxKm], function(data){
+                res.redirect('../../parametre')
+            })
        
     }
 

@@ -16,7 +16,8 @@ routeur.get("/paiement", ctrlPaiement.afficher_paiement)
     .post("/paiement/modifEtatMissionPaiement/:id", ctrlPaiement.executer_paiement);
 
 routeur.get("/parametre", ctrlParametre.afficher_parametre)
-    .post("/parametre", ctrlParametre.ajouter_distanceVille);
+    .post("/parametre", ctrlParametre.ajouter_distanceVille)
+    .post("/parametre/modifTaux", ctrlParametre.modifier_taux);
 
 
 module.exports = routeur;

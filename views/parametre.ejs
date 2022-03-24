@@ -1,15 +1,15 @@
 <%- include('header') %>
 <body>
     <div>
-    <form action="" method="post">
+    <form action="/parametre/modifTaux" method="post">
         <div class="rbtKm">
             <label for="rbtKm">Remboursement par kilometre
-                <input type="text" name="rbtKm" id="rbtKm">
+                <input type="text" name="rbtKm" id="rbtKm" placeholder="<%= contenu3[0].tauxKm %>">
             </label>
         </div>
         <div class="rbtJour">
             <label for="rbtJour">Remboursement par Jour en déplacement
-                <input type="text" name="rbtJour" id="rbtJour">
+                <input type="text" name="rbtJour" id="rbtJour" placeholder="<%= contenu3[0].forfaitJ %>">
             </label>
         </div>
 
