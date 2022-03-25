@@ -13,8 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <% console.log(contenu) %>
-        <% contenu.forEach(function(mission){ %>
+        <% contenu.forEach(function(mission,i){ %>
         
             <tr>
                 
@@ -35,7 +34,7 @@
                     <%= mission.mi_idcommune %>
                 </td>
                 <td>
-                    <% contenu
+                    <%= contenu2[i].prixtotal%>
                 </td>
                 <td>
                     <% if(  mission.mi_payee  == 0 ) {%>
@@ -46,6 +45,37 @@
                 </td>
             </tr>
             <% })%>
+            <% contenu3.forEach(function(mission){ %>
+        
+                <tr>
+                    
+                    <td>
+                        <%= mission.sa_nom %> <%= mission.sa_prenom %> 
+                    </td>
+    
+                    <td>
+                        <%= mission.mi_dateDebut %>
+                    </td>
+                    <td>
+                        <%= mission.mi_dateFin %>
+                    </td>
+                    <td>
+                        <%= mission.mi_lieuDepart %>
+                    </td>
+                    <td>
+                        <%= mission.mi_idcommune %>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <% if(  mission.mi_payee  == 0 ) {%>
+                            <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Valider la mission</button></form>
+                            <% } else { %>
+                                Paiement déjà réalisé
+                            <% } %>
+                    </td>
+                </tr>
+                <% })%>
     </tbody>
 </table>
 </body>

@@ -13,7 +13,6 @@ module.exports = {
         var sa_mdp =  req.body.txtMdp
         
         modelConnexion.executer_connexion([sa_id, sa_mdp],function(data){
-            console.log(data)
             if (data != []){
                 req.session.connect = data[0]
             }
