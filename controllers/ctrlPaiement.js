@@ -3,11 +3,11 @@ const modelPaiement = require('../models/modelPaiement');
 module.exports = {
     //afficher accueil
     afficher_paiement: function (req, res) {
-        modelPaiement.afficher_paiement(function(data){
+        modelPaiement.afficher_paiement(function(data, data2){
             if( req.session.connect == undefined ){
                  res.redirect('./connexion')
             }else {
-                res.render('./paiement', {contenu: data})
+                res.render('./paiement', {contenu: data, contenu2:data2})
 
             }
 
