@@ -4,7 +4,7 @@ module.exports = {
     //afficher accueil
     afficher_validation: function (req, res) {
         modelValidation.afficher_validation(function(data){
-            if( req.session.connect == undefined || req.session.connect.sa_isSubordonne == 1 ){
+            if( req.session.connect == undefined || req.session.connect.sa_isSubordonne == 0 ){
                  res.redirect('./connexion')
             }else{
                 res.render('./validation', {contenu: data})
