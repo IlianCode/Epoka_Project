@@ -2,11 +2,13 @@ const mysql = require('mysql')
 const express = require("express");
 const routeur = express.Router();
 
-
+const ctrlApi = require("../controllers/ctrlApi");
 const ctrlconnexion = require("../controllers/ctrlConnexion");
 const ctrlValidation = require('../controllers/ctrlValidation');
 const ctrlPaiement = require('../controllers/ctrlPaiement');
 const ctrlParametre = require('../controllers/ctrlParametre');
+
+routeur.get("/api/connexion/:sa_id/:sa_mdp", ctrlApi.testConnexion);
 
 routeur.get("/connexion", ctrlconnexion.afficher_connexion)
     .post("/connexion", ctrlconnexion.executer_connexion);
