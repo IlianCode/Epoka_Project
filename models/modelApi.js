@@ -15,10 +15,42 @@ const testConnexion = async(sa_id,sa_mdp)=>{
         })
     })    
 }
+const recupCommunes = async()=>{
+    return new Promise((resolve, reject) => {
+        var sql = 'SELECT * FROM communes';
+
+        db.query(sql, function(err, data,fields){
+            if(err || data.length == 0){
+                console.log(err)
+                reject("Aucune Notes trouvé !")
+            }else{
+                resolve(data)
+            }
+                
+        })
+    })    
+}
+const ajouterMission = async(mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommunne,mi_lieuDepart)=>{
+    return new Promise((resolve, reject) => {
+        var sql = 'INSERT INTO mission (mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommunne,mi_lieuDepart) VALUES (?,?,?,?,?,?,?)';
+
+        db.query(sql,[mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommunne,mi_lieuDepart], function(err, data,fields){
+            if(err || data.length == 0){
+                console.log(err)
+                reject("Aucune Notes trouvé !")
+            }else{
+                resolve(data)
+            }
+                
+        })
+    })    
+}
 
 
 module.exports = {
-    testConnexion
+    testConnexion,
+    recupCommunes,
+    ajouterMission
 }
 
 
