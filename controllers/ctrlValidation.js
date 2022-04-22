@@ -3,11 +3,11 @@ const modelValidation = require('../models/modelValidation');
 module.exports = {
     //afficher accueil
     afficher_validation: function (req, res) {
-        modelValidation.afficher_validation(function(data){
-            if( req.session.connect == undefined || req.session.connect.sa_isSubordonne == 0 ){
+        modelValidation.afficher_validation(function(data, data2){
+            if( req.session.connect == undefined || req.session.connect.sa_isSubordonne == 1 ){
                  res.redirect('./connexion')
             }else{
-                res.render('./validation', {contenu: data})
+                res.render('./validation', {contenu: data, contenubis: data2})
             }
         })
     },

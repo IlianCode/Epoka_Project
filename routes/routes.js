@@ -11,7 +11,7 @@ const ctrlParametre = require('../controllers/ctrlParametre');
 routeur.get("/api/connexion/:sa_id/:sa_mdp", ctrlApi.testConnexion)
         .get("/api/communes", ctrlApi.getCommunes)
         //ajouter une mission : 
-        .get("/api/mission/:mi_dateDebut/:mi_dateFin/:mi_validee/:mi_payee/:mi_idsalarie/:mi_idcommunne/:mi_lieuDepart", ctrlApi.ajouterMission);
+        .get("/api/mission/:mi_dateDebut/:mi_dateFin/:mi_validee/:mi_payee/:mi_idsalarie/:mi_idcommune/:mi_lieuDepart", ctrlApi.ajouterMission);
 routeur.get("/connexion", ctrlconnexion.afficher_connexion)
     .post("/connexion", ctrlconnexion.executer_connexion);
 routeur.get("/validation", ctrlValidation.afficher_validation)

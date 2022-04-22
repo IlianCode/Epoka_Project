@@ -38,7 +38,7 @@
                 </td>
                 <td>
                     <% if(  mission.mi_payee  == 0 ) {%>
-                        <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Valider la mission</button></form>
+                        <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Payer la mission</button></form>
                         <% } else { %>
                             Paiement déjà réalisé
                         <% } %>
@@ -69,7 +69,7 @@
                     </td>
                     <td>
                         <% if(  mission.mi_payee  == 0 ) {%>
-                            <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Valider la mission</button></form>
+                            <form action="/paiement/modifEtatMissionPaiement/<%= mission.mi_id %>" method="post"><button type="submit">Payer la mission</button></form>
                             <% } else { %>
                                 Paiement déjà réalisé
                             <% } %>

@@ -7,7 +7,8 @@ module.exports = {
             if( req.session.connect == undefined || req.session.connect.sa_isCompta != 1 ){
                  res.redirect('./connexion')
             }
-            
+         
+
            
             modelPaiement.recup_idMissionSansDistance(function(data3){
                 console.log("data 3 :")

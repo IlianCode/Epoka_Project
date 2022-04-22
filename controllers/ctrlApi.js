@@ -40,11 +40,11 @@ const ajouterMission = async (req, res) => {
         let mi_validee = req.params.mi_validee;
         let mi_payee = req.params.mi_payee;
         let mi_idsalarie = req.params.mi_idsalarie;
-        let mi_idcommunne = req.params.mi_idcommunne;
+        let mi_idcommune = req.params.mi_idcommune;
         let mi_lieuDepart = req.params.mi_lieuDepart;
         //
         
-        await modelApi.ajouterMission(mi_dateDebut, mi_dateFin, mi_validee, mi_payee, mi_idsalarie, mi_idcommunne, mi_lieuDepart)
+        await modelApi.ajouterMission(mi_dateDebut, mi_dateFin, mi_validee, mi_payee, mi_idsalarie, mi_idcommune, mi_lieuDepart)
         .then((data) => {
             let err = false;
             console.log(data)

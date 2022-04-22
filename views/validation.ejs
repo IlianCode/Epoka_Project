@@ -38,7 +38,7 @@
         </thead>
         <tbody>
             <% console.log(contenu) %>
-            <% contenu.forEach(function(mission){ %>
+            <% contenu.forEach(function(mission,i){ %>
             
                 <tr>
                     
@@ -54,10 +54,10 @@
                         <%= mission.mi_dateFin %>
                     </td>
                     <td>
-                        <%= mission.mi_lieuDepart %>
+                        <%= contenubis[i].lieuDepart%>
                     </td>
                     <td>
-                        <%= mission.mi_idcommune %>
+                        <%= mission.lieuMission %>
                     </td>
                     <td>
                         <% if(  mission.mi_validee  == 0 ) {%>
