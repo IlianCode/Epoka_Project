@@ -3,14 +3,14 @@ const modelParametre = require('../models/modelParametre');
 module.exports = {
     //afficher accueil
     afficher_parametre: function (req, res) {
-        modelParametre.afficher_parametre(function(data, data2, data3){
+        modelParametre.afficher_parametre(function(data, data2, data3, data4){
 
             if( req.session.connect == undefined || req.session.connect.sa_isCompta != 1 ){
                 console.log(req.session.connect.sa_isCompta)
                  res.redirect('./connexion')
             }else {
                 console.log(data3)
-                res.render('./parametre', {contenu: data, contenu2: data2, contenu3: data3})
+                res.render('./parametre', {contenu: data, contenu2: data2, contenu3: data3, contenu4: data4})
             }
         })
     },

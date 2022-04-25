@@ -13,7 +13,7 @@
         </tr>
     </thead>
     <tbody>
-        <% contenu.forEach(function(mission,i){ %>
+        <% contenu.forEach(function(mission,i,d){ %>
         
             <tr>
                 
@@ -28,10 +28,10 @@
                     <%= mission.mi_dateFin %>
                 </td>
                 <td>
-                    <%= mission.mi_lieuDepart %>
+                    <%= contenu4[i].co_nom %>
                 </td>
                 <td>
-                    <%= mission.mi_idcommune %>
+                    <%= mission.co_nom %>
                 </td>
                 <td>
                     <%= contenu2[i].prixtotal%>
@@ -45,7 +45,7 @@
                 </td>
             </tr>
             <% })%>
-            <% contenu3.forEach(function(mission){ %>
+            <% contenu3.forEach(function(mission, i){ %>
         
                 <tr>
                     
@@ -60,10 +60,10 @@
                         <%= mission.mi_dateFin %>
                     </td>
                     <td>
-                        <%= mission.mi_lieuDepart %>
+                        <%= contenu5[i].co_nom %>
                     </td>
                     <td>
-                        <%= mission.mi_idcommune %>
+                        <%= mission.co_nom %>
                     </td>
                     <td>
                     </td>

@@ -60,7 +60,7 @@
             </thead>
             <tbody>
                 <% console.log(contenu) %>
-                <% contenu.forEach(function(contenu){ %>
+                <% contenu.forEach(function(contenu,i){ %>
                 
                     <tr>
                         <td>
@@ -86,12 +86,12 @@
                             </ul>
                         </td>
                         <td>
-                            <%= contenu.di_idComDepart %>
+                            <%= contenu.co_nom %>
 
                         </td>
     
                         <td>
-                            <%= contenu.di_idComArrive %>
+                            <%= contenu4[i].co_nom %>
                         </td>
                         <td>
                             <%= contenu.di_distanceKm %> 

@@ -1,15 +1,17 @@
 var db = require('../config/database');
 module.exports = {
     afficher_parametre: function (callback) {
-        var sql = 'SELECT * FROM distance';
+        var sql = 'SELECT * FROM distance, communes where di_idComDepart = co_id';
         var sql2 = 'SELECT * FROM communes';
         var sql3 = 'SELECT * FROM parametre'
-
+        var sql4 = 'SELECT * FROM distance, communes where di_idComArrive = co_id';
         db.query(sql, function (err, data,fields) {
             db.query(sql2, function (err, data2,fields) {
                 db.query(sql3, function (err, data3,fields) {
-                    if (err) throw err;
-                    return callback(data, data2, data3);
+                    db.query(sql4, function (err, data4,fields) {
+                        if (err) throw err;
+                        return callback(data, data2, data3, data4);
+                    });
                 });
             });
         });
