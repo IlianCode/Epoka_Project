@@ -28,7 +28,7 @@ const getCommunes =async (req, res) => {
         res.json(data)
     }).catch((err) => {
         console.log(err)
-        res.json(err)
+        res.redirect('./parametre') 
     })
 }
 //ajouter une mission
@@ -54,9 +54,27 @@ const ajouterMission = async (req, res) => {
             res.json(err)
         })
 }
+//supprimer une distance:
+const supprimerDistance = async (req, res) => {
+        
+            // Prelevé dans l'URL
+            let di_id = req.params.di_id;
+            //
+            
+            await modelApi.supprimerDistance(di_id)
+            .then((data) => {
+                let err = false;
+                console.log(data)
+                res.redirect('../../parametre') 
+            }).catch((err) => {
+                console.log(err)
+                res.json(err)
+            })
+}
 module.exports = {
     
     testConnexion,
     getCommunes,
-    ajouterMission
+    ajouterMission,
+    supprimerDistance
 }

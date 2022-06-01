@@ -3,10 +3,14 @@ const modelConnexion = require('../models/modelConnexion');
 module.exports = {
     //afficher accueil
     afficher_connexion: function (req, res) {
+        if( req.session.connect != undefined ){
+            res.redirect('./validation')
+       }else{
         modelConnexion.afficher_connexion(function(data){
             res.render('./connexion', {test: data})
 
         })
+         }
     },
     executer_connexion: function(req,res){
         var sa_id = req.body.txtUtilisateur 
@@ -18,5 +22,9 @@ module.exports = {
             }
             res.redirect('../validation')
         })
+    },
+    deconnexion : function(req,res){
+        sess = req.session.destroy();
+        res.redirect('../connexion')
     }
 }

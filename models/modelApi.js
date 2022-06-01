@@ -33,8 +33,28 @@ const recupCommunes = async()=>{
 const ajouterMission = async(mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommune,mi_lieuDepart)=>{
     return new Promise((resolve, reject) => {
         var sql = 'INSERT INTO mission (mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommune,mi_lieuDepart) VALUES (?,?,?,?,?,?,?)';
-
+        if (mi_dateDebut > mi_dateFin){
+            reject("La date de début doit être inférieur à la date de fin")
+        }else{
         db.query(sql,[mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsalarie,mi_idcommune,mi_lieuDepart], function(err, data,fields){
+            if(err || data.length == 0){
+                console.log(err)
+                reject("Aucune Notes trouvé !")
+            }else{
+                resolve(data)
+            }
+                
+        })
+    }
+    })    
+}
+
+//supprimer distance : 
+const supprimerDistance = async(mi_id)=>{
+    return new Promise((resolve, reject) => {
+        var sql = 'DELETE FROM distance WHERE di_id = ?';
+
+        db.query(sql,[mi_id], function(err, data,fields){
             if(err || data.length == 0){
                 console.log(err)
                 reject("Aucune Notes trouvé !")
@@ -46,11 +66,11 @@ const ajouterMission = async(mi_dateDebut,mi_dateFin,mi_validee,mi_payee,mi_idsa
     })    
 }
 
-
 module.exports = {
     testConnexion,
     recupCommunes,
-    ajouterMission
+    ajouterMission,
+    supprimerDistance
 }
 
 

@@ -6,7 +6,6 @@ module.exports = {
         modelParametre.afficher_parametre(function(data, data2, data3, data4){
 
             if( req.session.connect == undefined || req.session.connect.sa_isCompta != 1 ){
-                console.log(req.session.connect.sa_isCompta)
                  res.redirect('./connexion')
             }else {
                 console.log(data3)
@@ -50,5 +49,4 @@ module.exports = {
             })
        
     }
-
 }

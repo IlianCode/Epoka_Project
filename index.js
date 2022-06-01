@@ -23,7 +23,6 @@ app.listen(3000, () => console.log("Le serveur est actif !"));
 var sess;
 app.use(function (req, res, next) {
     sess =  req.session.connect
-    w =  "Cory Gross"
     next();
  });
 

@@ -19,6 +19,7 @@
     <div>
     <form action="/parametre" method="post">
         <div class="distanceA">
+            Ville A: 
             <input list="communes" name="communes">
                 <datalist id="communes" name="communes">
                     <% for (let i = 0; i < contenu2.length; i++) { %>
@@ -28,6 +29,7 @@
              </input>    
         </div>
         <div class="distanceB">
+            Ville B:
             <input list="communes2" name="communes2">
                 <datalist id="communes2" name="communes2">
                     <% for (let i = 0; i < contenu2.length; i++) { %>
@@ -64,26 +66,9 @@
                 
                     <tr>
                         <td>
-                            <ul class="list-inline m-0">
-                                <li class="list-inline-item">
-                                    <button class="btn btn-primary btn-sm rounded-0" type="button"
-                                        data-toggle="modal" data-target="#detail_<%= contenu.di_id %>"
-                                        title="Détails"><i class="fa fa-eye"></i></button>
-                                </li>
-                                <li class="list-inline-item">
-                                    <button class="btn btn-success btn-sm rounded-0" type="button"
-                                        title="Modifier"
-                                        onclick="location.href = '/sautheuhz/fiche_client/<%= contenu.di_id %>';"><i
-                                            class="fa fa-edit"></i></button>
-                                </li>
-                                <li class="list-inline-item">
-                                    <button class="btn btn-danger btn-sm rounded-0" type="button"
-                                        data-toggle="modal"
-                                        data-target="#supprimer_<%= contenu.di_id %>"
-                                        title="Supprimer"><i class="fa fa-trash"></i></button>
-                                    </form>
-                                </li>
-                            </ul>
+                            <form action="/api/supprimerDistance/<%= contenu.di_id %>">
+                                <button type="submit">Supprimer</button>
+                            </form>
                         </td>
                         <td>
                             <%= contenu.co_nom %>

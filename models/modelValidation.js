@@ -1,7 +1,7 @@
 var db = require('../config/database');
 module.exports = {
     afficher_validation: function (callback) {
-        var sql = 'SELECT sa_nom, sa_prenom, mi_dateDebut, mi_dateFin, mi_lieuDepart , mi_idcommune, co_nom as lieuMission from mission, salarie, communes WHERE sa_id = mi_idsalarie and mi_idcommune = co_id';
+        var sql = 'SELECT sa_nom, sa_prenom, DATE_FORMAT(mi_dateDebut, "%d/%m/%Y") as mi_dateDebut ,DATE_FORMAT(mi_dateFin, "%d/%m/%Y") as mi_dateFin, mi_lieuDepart , mi_idcommune, co_nom as lieuMission, mi_validee, mi_id from mission, salarie, communes WHERE sa_id = mi_idsalarie and mi_idcommune = co_id';
         var sql2 = 'SELECT mi_lieuDepart, co_nom as lieuDepart from mission, salarie, communes WHERE sa_id = mi_idsalarie and mi_lieuDepart = co_id';
         db.query(sql, function (err, data,fields) {
             db.query(sql2, function (err, data2,fields) {
